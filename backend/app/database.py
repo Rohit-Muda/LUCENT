@@ -1,3 +1,4 @@
+
 from functools import lru_cache
 from collections.abc import Iterator
 
@@ -28,9 +29,16 @@ def get_engine() -> Engine:
         raise DatabaseConfigurationError("DATABASE_URL must use mysql+pymysql.")
 
     try:
-        return create_engine(url, pool_pre_ping=True, pool_recycle=1800)
+        return create_engine(
+            url,
+            pool_pre_ping=True,
+            pool_recycle=1800,
+            connect_args={"ssl": {}},
+        )
     except SQLAlchemyError as exc:
-        raise DatabaseConfigurationError("The configured database engine is invalid.") from exc
+        raise DatabaseConfigurationError(
+            "The configured database engine is invalid."
+        ) from exc
 
 
 def check_database_connection() -> None:
