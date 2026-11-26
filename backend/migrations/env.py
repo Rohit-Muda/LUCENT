@@ -1,10 +1,10 @@
+
 from logging.config import fileConfig
 
 from alembic import context
-from sqlalchemy import engine_from_config
-from sqlalchemy.exc import ArgumentError
-from sqlalchemy import pool
+from sqlalchemy import engine_from_config, pool
 from sqlalchemy.engine import make_url
+from sqlalchemy.exc import ArgumentError
 
 from backend.app.config import get_settings
 from backend.app.models import Base
@@ -23,6 +23,7 @@ def _database_url() -> str:
         raise RuntimeError("DATABASE_URL must be configured before running migrations.")
 
     url = configured_url.get_secret_value()
+
     try:
         parsed_url = make_url(url)
     except ArgumentError as exc:
@@ -30,6 +31,7 @@ def _database_url() -> str:
 
     if parsed_url.drivername != "mysql+pymysql":
         raise RuntimeError("DATABASE_URL must use mysql+pymysql.")
+
     return url
 
 
@@ -41,6 +43,7 @@ def _set_configured_url() -> str:
 
 def run_migrations_offline() -> None:
     url = _set_configured_url()
+
     context.configure(
         url=url,
         target_metadata=target_metadata,
@@ -54,10 +57,12 @@ def run_migrations_offline() -> None:
 
 def run_migrations_online() -> None:
     _set_configured_url()
+
     connectable = engine_from_config(
         config.get_section(config.config_ini_section, {}),
         prefix="sqlalchemy.",
         poolclass=pool.NullPool,
+        connect_args={"ssl": {}},
     )
 
     with connectable.connect() as connection:
