@@ -1,0 +1,14 @@
+.venv/
+.git/
+.env
+.env.*
+node_modules/
+frontend/
+uploads/
+generated_pdfs/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.coverage
+htmlcov/
+backend/tests/

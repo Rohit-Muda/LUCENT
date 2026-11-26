@@ -1,0 +1,109 @@
+:root {
+  --font-display: 'Sora', ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-sans: 'DM Sans', ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-editorial: 'Newsreader', 'Noto Sans Telugu', sans-serif;
+  --font-telugu: 'Noto Sans Telugu', 'DM Sans', 'Nirmala UI', sans-serif;
+
+  font-family: var(--font-sans);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Light theme — Warm Paper */
+  --bg: #F5F2EA;
+  --surface: #FFFFFF;
+  --surface-muted: #EEEAE0;
+  --surface-elevated: #FAF8F3;
+  --text-strong: #202A35;
+  --text-muted: #707873;
+  --accent: #247C78;
+  --accent-hover: #1B625F;
+  --accent-subtle: rgba(36, 124, 120, 0.10);
+  --on-accent: #FFFFFF;
+  --accent-secondary: #C77D5D;
+  --accent-secondary-subtle: rgba(199, 125, 93, 0.12);
+  --border: #E3DED3;
+  --border-strong: #CFC8B8;
+
+  --danger: #9E2A2B;
+  --danger-surface: #FDF0EF;
+  --danger-border: #F0C4C2;
+  --success: #194B43;
+  --success-surface: #EDF5F2;
+  --success-border: #C5DFD6;
+  --warning: #784A17;
+  --warning-surface: #FBF3E6;
+  --warning-border: #E8CFAF;
+
+  --shadow-sm: 0 1px 4px rgba(32, 42, 53, 0.04);
+  --shadow: 0 4px 16px rgba(32, 42, 53, 0.05);
+  --header-bg: rgba(245, 242, 234, 0.85);
+  --sidebar-width: 264px;
+  --header-height: 64px;
+
+  color: var(--text-strong);
+  background: var(--bg);
+}
+
+[data-theme="dark"] {
+  /* Dark theme — Deep Forest */
+  --bg: #111A1B;
+  --surface: #1C2928;
+  --surface-muted: #243330;
+  --surface-elevated: #162221;
+  --text-strong: #E9E6DA;
+  --text-muted: #A5B2AA;
+  --accent: #80C7B8;
+  --accent-hover: #97D5C8;
+  --accent-subtle: rgba(128, 199, 184, 0.14);
+  --on-accent: #0F1B1A;
+  --accent-secondary: #D6A36A;
+  --accent-secondary-subtle: rgba(214, 163, 106, 0.14);
+  --border: #30403C;
+  --border-strong: #415550;
+
+  --danger: #F29B9B;
+  --danger-surface: #351B1C;
+  --danger-border: #5C2D2F;
+  --success: #80C7B8;
+  --success-surface: #18312D;
+  --success-border: #2A4E47;
+  --warning: #D6A36A;
+  --warning-surface: #312617;
+  --warning-border: #543F22;
+
+  --shadow-sm: 0 1px 4px rgba(0, 0, 0, 0.2);
+  --shadow: 0 6px 20px rgba(0, 0, 0, 0.28);
+  --header-bg: rgba(17, 26, 27, 0.86);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--text-strong);
+  font-family: var(--font-sans);
+  line-height: 1.55;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+a {
+  color: var(--accent);
+}
